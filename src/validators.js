@@ -4,3 +4,6 @@ export const parseId = (value) => (/^[1-9]\d*$/.test(value) ? Number(value) : nu
 
 export const validateProduct = ({ name, num_photos } = {}) =>
   isText(name) && Number.isInteger(num_photos) && num_photos >= 0;
+
+export const validateUser = ({ name, surname, email } = {}) =>
+  isText(name) && isText(surname) && typeof email === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
